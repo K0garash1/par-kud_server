@@ -1,12 +1,14 @@
 import { Sequelize } from "sequelize";
 
 export const sequelize = new Sequelize(
-  process.env.DB_NAME, // db name,
-  process.env.DB_USERNAME, // username
-  process.env.DB_PASSWORD, // password
+  process.env.DATABASE_URL, // URL de conexión proporcionada por Railway
   {
-    host: process.env.DB_HOST,
     dialect: "postgres",
+    host: process.env.PGHOST, // Host de la base de datos
+    port: process.env.PGPORT, // Puerto de la base de datos
+    database: process.env.PGDATABASE, // Nombre de la base de datos
+    username: process.env.PGUSER, // Nombre de usuario
+    password: process.env.PGPASSWORD, // Contraseña
     // pool: {
     //   max: 5,
     //   min: 0,
