@@ -1,11 +1,11 @@
 import { Sequelize } from "sequelize";
 
 export const sequelize = new Sequelize(
-  "par-kud", // db name,
-  "postgres", // username
-  "pospass", // password
+  process.env.DB_NAME, // db name,
+  process.env.DB_USERNAME, // username
+  process.env.DB_PASSWORD, // password
   {
-    host: "localhost",
+    host: process.env.DB_HOST,
     dialect: "postgres",
     // pool: {
     //   max: 5,
